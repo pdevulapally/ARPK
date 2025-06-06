@@ -1,16 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { getAllDiscountCodes, createDiscountCode, type DiscountCode } from "@/lib/firebase"
+import { getAllDiscountCodes, createDiscountCode, type DiscountCode } from "@/lib/firebase-client"
 import { Loader2, Plus, Percent } from "lucide-react"
 
 export default function DiscountsPage() {
-  const router = useRouter()
   const [discounts, setDiscounts] = useState<DiscountCode[]>([])
   const [loading, setLoading] = useState(true)
   const [showCreateForm, setShowCreateForm] = useState(false)
